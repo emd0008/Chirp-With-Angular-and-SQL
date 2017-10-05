@@ -1,0 +1,17 @@
+<div class='chirp-box'>
+    <select id="userselect" ng-model="chirpUser">
+        <option value="">Select a User</option>
+        <option ng-repeat="user in users" value="{{ user.id }}">{{ user.name }}</option>
+    </select>
+    <input type="text" ng-model="chirpMessage" id="chirptext" placeholder="Write here!">    
+    <button class="button" id="chirpbutton" ng-click="postChirp()">Chirp!</button>
+</div>
+<div id="chirp-container">
+    <a href="/#!/chirps/{{ chirp.id }}" ng-repeat="chirp in chirps">
+        <div class="chirp">
+                <p>{{ chirp.message }}</p>
+                <h4>{{ chirp.userName }}</h4>
+                <h5>{{ chirp.timestamp | date: 'short' }}</h5>
+        </div>
+    </a>
+</div>
